@@ -1,14 +1,21 @@
 # myhexdump
 
-Una versione semplice di `hexdump` scritta in C: mostra i byte di un file
-in esadecimale, 16 per riga, con l'offset a sinistra.
+A simple version of `hexdump` written in C: it prints the bytes of a file
+in hexadecimal, 16 per line, with the offset on the left.
 
-## Uso
+## Usage
 
     make
     ./myhexdump file.txt
-    echo "ciao" | ./myhexdump
+    echo "hello" | ./myhexdump
 
-## Esempio
+## Example
 
-    00000000 50 72 69 6d 61 20 72 69 67 61 0a 53 65 63 6f 6e
+    $ echo "hello world" | ./myhexdump
+    00000000 68 65 6c 6c 6f 20 77 6f 72 6c 64 0a
+
+## Why
+
+I wrote it to see what files really are: a sequence of bytes.
+Text is ASCII/UTF-8 (`\n` is `0a`), and even a compiled program
+is just bytes. A Mach-O executable starts with `cf fa ed fe`.
